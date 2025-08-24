@@ -1,10 +1,10 @@
 "use client";
-
+import FooterColumn from "./sub-components/Footer_column";
 import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#232f3e] text-white text-sm mt-16">
+    <footer className="bg-[#19222d] text-white text-sm mt-16">
       {/* Top Button */}
       <button
         className="text-center py-4 border-b border-gray-600 hover:underline cursor-pointer w-full"
@@ -63,26 +63,5 @@ export default function Footer() {
         <p>&copy; 1996–2025, Amazon.com, Inc. or its affiliates</p>
       </div>
     </footer>
-  );
-}
-
-// ========== Subcomponent for Column ==========
-type FooterColumnProps = {
-  title: string;
-  links: string[];
-};
-
-function FooterColumn({ title, links }: FooterColumnProps) {
-  return (
-    <div>
-      <h3 className="font-bold mb-3">{title}</h3>
-      <ul className="space-y-2">
-        {links.map((link, index) => (
-          <li key={index} className="hover:underline cursor-pointer">
-            {link}
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 }

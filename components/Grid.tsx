@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   CreditCard,
   Tag,
@@ -8,7 +9,9 @@ import {
   Sun,
   Sparkles,
   Shirt,
+  ArrowRight,
 } from "lucide-react";
+
 
 const offers = [
   {
@@ -56,17 +59,23 @@ const offers = [
 export default function OffersGrid() {
   return (
     <section className="px-6 py-12 bg-white">
-      <h2 className="text-3xl font-bold mb-10 text-center text-gray-800">
-        🔥 Today's Top Deals
-      </h2>
+      <div className="flex items-center justify-center mb-10">
+        <h2 className="text-4xl font-extrabold  mr-4 text-center text-gray-800">
+          <span className="inline-block mr-2 align-middle">
+            <Package className="w-10 h-10 ml-2" />
+          </span>
+          Today's Top Deals
+        </h2>
+        <div className="w-16 h-3 rounded-full" />
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {offers.map((offer, index) => (
           <div
             key={index}
-            className="group rounded-xl shadow-md hover:shadow-xl bg-white overflow-hidden transition-all duration-300 border border-gray-200"
+            className="group rounded-xl shadow-md  overflow-hidden  border border-gray-200"
           >
-            {/* الصورة */}
+
             <div className="relative w-full h-44">
               <Image
                 src={offer.image}
@@ -76,16 +85,18 @@ export default function OffersGrid() {
               />
             </div>
 
-            {/* المحتوى */}
+        
             <div className="p-4 text-center space-y-3">
               <div className="flex justify-center">{offer.icon}</div>
               <h3 className="text-lg font-bold text-gray-700 line-clamp-2">
                 {offer.title}
               </h3>
 
-              <button className="mt-2 text-sm bg-yellow-400 text-black font-semibold px-4 py-2 rounded-full hover:bg-yellow-700 transition">
-                Shop Now 
-              </button>
+              <Link href={`/deals/${offer.title.toLowerCase().replace(/ /g, '-')}`} className="mt-2 text-sm bg-yellow-400 text-black font-semibold px-4 py-2 inline-block rounded-full transition duration-300 hover:bg-yellow-700 hover:shadow-lg active:bg-yellow-800 active:scale-95">
+      
+                  Shop Now 
+                  <ArrowRight className="inline-block ml-2" />
+              </Link>
             </div>
           </div>
         ))}
