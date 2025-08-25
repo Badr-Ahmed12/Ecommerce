@@ -10,28 +10,28 @@ import 'swiper/css/pagination'
 const bannerData = [
   {
     id: 1,
-    img: 'https://images.unsplash.com/photo-1556740714-45c5f997537d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-    title: 'Shop the Latest Deals',
-    subtitle: 'Up to 70% off on electronics & more',
-    link: 'https://www.amazon.com/deals/',
+    img: 'https://images.unsplash.com/photo-1556740714-45c5f997537d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
+    title: 'Minimalist Fashion',
+    subtitle: 'Timeless pieces. Modern style.',
+    link: '/shop',
   },
   {
     id: 2,
-    img: 'https://images.unsplash.com/photo-1564428654024-625a55e4b6e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-    title: 'Back to School Offers',
-    subtitle: 'Get supplies with amazing discounts',
-    link: 'https://www.amazon.com/school',
+    img: 'https://images.unsplash.com/photo-1564428654024-625a55e4b6e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
+    title: 'Back to Basics',
+    subtitle: 'Clean cuts, neutral tones.',
+    link: '/shop',
   },
   {
     id: 3,
-    img: 'https://images.unsplash.com/photo-1514961013549-1a7c9a0e64da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-    title: 'Your Favorite Brands',
-    subtitle: 'All in one place. Exclusive online prices.',
-    link: 'https://www.amazon.com/brands',
+    img: 'https://images.unsplash.com/photo-1514961013549-1a7c9a0e64da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
+    title: 'New Arrivals',
+    subtitle: 'Explore the latest collection.',
+    link: '/shop',
   },
 ]
 
-export default function AmazonBanner() {
+export default function MinimalBanner() {
   return (
     <section className="relative w-full overflow-hidden">
       <Swiper
@@ -40,7 +40,7 @@ export default function AmazonBanner() {
         loop={true}
         autoplay={{ delay: 5000 }}
         pagination={{ clickable: true }}
-        className="h-[300px] md:h-[450px]"
+        className="h-[320px] md:h-[500px]"
       >
         {bannerData.map((item) => (
           <SwiperSlide key={item.id}>
@@ -51,15 +51,15 @@ export default function AmazonBanner() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute top-1/2 left-6 md:left-12 -translate-y-1/2 bg-white/80 p-6 md:p-8 rounded-xl backdrop-blur-md shadow-xl max-w-md">
-                <h2 className="text-xl md:text-3xl font-bold mb-2 text-black">
+              <div className="absolute top-1/2 left-6 md:left-16 -translate-y-1/2 bg-white/80 p-6 md:p-10 rounded-lg backdrop-blur-md shadow-lg max-w-lg">
+                <h2 className="text-2xl md:text-4xl font-light mb-2 text-black tracking-wide">
                   {item.title}
                 </h2>
-                <p className="text-sm md:text-base text-gray-700 mb-4">
+                <p className="text-sm md:text-lg text-gray-600 mb-6">
                   {item.subtitle}
                 </p>
                 <Link href={item.link}>
-                  <span className="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-4 py-2 rounded transition duration-200">
+                  <span className="inline-block bg-black text-white hover:bg-white hover:text-black border border-black font-medium px-5 py-2.5 rounded-full transition-colors duration-300">
                     Shop Now
                   </span>
                 </Link>

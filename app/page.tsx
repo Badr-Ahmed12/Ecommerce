@@ -1,14 +1,17 @@
 import Banner from "@/components/Banner";
+import FeaturedCategories from "@/components/Featured";
 import Footer from "@/components/Footer";
 import OffersGrid from "@/components/Grid";
-import AmazonNavbar from "@/components/Nav";
+import Navbar from "@/components/Nav";
 
 export default function Home() {
   return (
     <div>
-    <AmazonNavbar />
+    <Navbar />
      <Banner /> 
      <OffersGrid />
+     <FeaturedCategories />
+     <
      <Footer />
     </div>
   );

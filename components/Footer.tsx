@@ -1,67 +1,64 @@
 "use client";
-import FooterColumn from "./sub-components/Footer_column";
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#19222d] text-white text-sm mt-16">
-      {/* Top Button */}
-      <button
-        className="text-center py-4 border-b border-gray-600 hover:underline cursor-pointer w-full"
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      >
-        Back to top
-      </button>
+    <footer className="bg-white text-black border-t border-gray-200 mt-16">
+      {/* Main Footer */}
+      <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
+        <div>
+          <h3 className="font-semibold mb-4 uppercase tracking-wide">Clothora</h3>
+          <p className="text-gray-600">
+            Timeless fashion. Minimal design. Modern essentials for everyday life.
+          </p>
+        </div>
 
-      {/* Main Links Grid */}
-      <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 border-b border-gray-600">
-        <FooterColumn
-          title="Get to Know Us"
-          links={["About Us", "Careers", "Amazon Science"]}
-        />
-        <FooterColumn
-          title="Shop with Us"
-          links={["Your Account", "Your Orders", "Your Cart", "Your Lists"]}
-        />
-        <FooterColumn
-          title="Make Money with Us"
-          links={[
-            "Sell on Amazon",
-            "Sell Under Amazon Accelerator",
-            "Fulfillment by Amazon",
-            "Supply to Amazon",
-          ]}
-        />
-        <FooterColumn
-          title="Let Us Help You"
-          links={[
-            "Help",
-            "Shipping & Delivery",
-            "Returns & Replacements",
-            "Amazon App Download",
-          ]}
-        />
+        <div>
+          <h3 className="font-semibold mb-4 uppercase tracking-wide">Company</h3>
+          <ul className="space-y-2">
+            <li><Link href="/about" className="hover:text-gray-600">About Us</Link></li>
+            <li><Link href="/careers" className="hover:text-gray-600">Careers</Link></li>
+            <li><Link href="/contact" className="hover:text-gray-600">Contact</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-semibold mb-4 uppercase tracking-wide">Shop</h3>
+          <ul className="space-y-2">
+            <li><Link href="/shop" className="hover:text-gray-600">All Products</Link></li>
+            <li><Link href="/new" className="hover:text-gray-600">New Arrivals</Link></li>
+            <li><Link href="/sale" className="hover:text-gray-600">Sale</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-semibold mb-4 uppercase tracking-wide">Help</h3>
+          <ul className="space-y-2">
+            <li><Link href="/help" className="hover:text-gray-600">Customer Service</Link></li>
+            <li><Link href="/shipping" className="hover:text-gray-600">Shipping & Returns</Link></li>
+            <li><Link href="/faq" className="hover:text-gray-600">FAQs</Link></li>
+          </ul>
+        </div>
       </div>
 
-      {/* Language & Country */}
-      <div className="text-center py-6 space-y-4">
-     
-        <Image
-          src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
-          alt="Amazon Logo"
-          width={100}
-          height={30}
-          className="mx-auto"
-        />
-      </div>
-
-      {/* Bottom Legal */}
-      <div className="bg-[#131a22] text-gray-400 text-center py-4 text-xs space-y-1">
-        <p>
-          Conditions of Use &nbsp;|&nbsp; Privacy Notice &nbsp;|&nbsp; Interest-Based Ads
+      {/* Logo & Legal */}
+      <div className="border-t border-gray-200 py-6 text-center">
+        <div className="flex items-center justify-center">
+          <Image
+            src="/logo.png"
+            alt="Clothora Logo"
+            width={40}
+            height={32}
+            className="mr-2"
+          />
+          <span className="text-xl">Clothora</span>
+        </div>
+        <p className="text-xs text-gray-500">
+          &copy; 2025 Clothora. All rights reserved.
         </p>
-        <p>&copy; 1996–2025, Amazon.com, Inc. or its affiliates</p>
       </div>
     </footer>
   );
 }
+
